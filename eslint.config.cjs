@@ -4,8 +4,10 @@ const prettier = require('eslint-config-prettier');
 
 module.exports = [
   { ignores: ['**/*.cjs'] },
+
   js.configs.recommended,
   prettier,
+
   {
     files: ['**/*.ts'],
     languageOptions: {
@@ -13,6 +15,10 @@ module.exports = [
       parserOptions: {
         ecmaVersion: 'latest',
         sourceType: 'module',
+      },
+      globals: {
+        console: 'readonly', // додали Node глобальну змінну console
+        process: 'readonly', // якщо потрібен process
       },
     },
     plugins: {
